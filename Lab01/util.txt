@@ -1,0 +1,53 @@
+
+    // with open(fd) {
+    //     char *file_content = malloc(1024);
+    //     if (!file_content) {
+    //         perror("malloc");
+    //         exit(EXIT_FAILURE);
+    //     }
+    //     ssize_t bytes_read = read(fd, file_content, 1024);
+    //     if (bytes_read < 0) {
+    //         perror("read");
+    //         exit(EXIT_FAILURE);
+    //     }
+    //     file_content[bytes_read] = '\0';
+    //     config_t config;
+    //     config.n_cmds = 0;
+    //     config.cmds = NULL;
+    //     config.total_locks = 0;
+    //     char *line = strtok(file_content, "\n");
+    //     while (line) {
+    //         if (line[0] == '#') {
+    //             line = strtok(NULL, "\n");
+    //             continue;
+    //         }
+    //         int id, duration;
+    //         if (sscanf(line, "%d %d", &id, &duration) != 2) {
+    //             fprintf(stderr, "Invalid line: %s\n", line);
+    //             exit(EXIT_FAILURE);
+    //         }
+    //         if (id == my_id) {
+    //             config.cmds = realloc(config.cmds, sizeof(cmd_t) * (config.n_cmds + 1));
+    //             if (!config.cmds) {
+    //                 perror("realloc");
+    //                 exit(EXIT_FAILURE);
+    //             }
+    //             config.cmds[config.n_cmds].type = CMD_LOCK;
+    //             config.cmds[config.n_cmds].arg = duration;
+    //             config.n_cmds++;
+    //             config.total_locks++;
+    //         } else {
+    //             config.cmds = realloc(config.cmds, sizeof(cmd_t) * (config.n_cmds + 1));
+    //             if (!config.cmds) {
+    //                 perror("realloc");
+    //                 exit(EXIT_FAILURE);
+    //             }
+    //             config.cmds[config.n_cmds].type = CMD_WAIT;
+    //             config.cmds[config.n_cmds].arg = id;
+    //             config.n_cmds++;
+    //         }
+    //         line = strtok(NULL, "\n");
+    //     }
+    //     free(file_content);
+    //     return config;
+    // }
